@@ -19,7 +19,7 @@ public class DateCacu {
         BufferedReader br = new BufferedReader(isr);
         String str = null;
         while((str = br.readLine()) != null){
-            System.out.println(str);
+            //System.out.println(str);
             int year = Integer.parseInt(str.substring(0,4));
             int month = Integer.parseInt(str.substring(4,6));
             int day = Integer.parseInt(str.substring(6,8));
@@ -28,16 +28,20 @@ public class DateCacu {
             int startDay = cal.get(Calendar.DAY_OF_WEEK) - 1;// 获取这一天是星期几
             if(startDay == 6 || startDay == 0)//6:Saturday 0:Sunday
             {
+                //BufferedReader br = new BufferedReader(new InputStreamReader(s));
                 BufferedWriter out = new BufferedWriter(new FileWriter("JieJiaRi.csv",true));//去掉true可以覆盖读写文件
                 out.write(str);
                 out.newLine();
+                out.close();
             }
             else
             {
                 BufferedWriter out = new BufferedWriter(new FileWriter("GongZuoRi.csv",true));//去掉true可以覆盖读写文件
                 out.write(str);
                 out.newLine();
+                out.close();
             }
+
 
         }
 
